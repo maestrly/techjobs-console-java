@@ -125,4 +125,24 @@ public class JobData {
         }
     }
 
+    // Find by Value
+    public static ArrayList<HashMap<String,String>> findByValue(String value) {
+        //load data
+        loadData();
+
+        ArrayList<HashMap<String,String>> jobs = new ArrayList<>();
+        boolean searchResult = true;
+
+        for (HashMap<String, String> row : allJobs) {
+            if (row.toString().toLowerCase().contains(value)) {
+                jobs.add(row);
+            }
+        }
+
+        if (jobs.size() <= 0) {
+            System.out.println("You search term does not exist");
+        }
+        return jobs;
+    }
+
 }
